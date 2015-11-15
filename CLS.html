@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<title>CLS</title>
+<head>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+table.alg-table {
+  border-collapse: collapse;
+  width: 850px;
+  height: 1100px;
+    margin: 0 auto;
+}
+
+@media screen {
+  table.alg-table {
+    margin: 2em auto;
+  }
+}
+
+.title {
+  font-size: 8px;
+  line-height: 1.25em;
+}
+
+table.alg-table > tbody > tr {
+  height: 40px;
+}
+
+table.alg-table > tbody > tr > td {
+  text-align: center;
+  border: 1px solid rgb(192, 192, 192);
+}
+
+table.alg-table > tbody:first-child > tr:first-child > td:first-child {
+  border: none;
+}
+
+table.alg-table > tbody > tr > td:first-child {
+  width: 50px;
+  padding: 0px 0px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+table.alg-table tbody.algs tr td:not(:first-child) {
+  padding-left: 2px;
+  text-align: left;
+}
+
+span.case-name {
+  margin-right: 4px;
+  color: rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 4px;
+}
+
+span.case-name.learn {
+  text-decoration: underline;
+}
+
+
+table.case-img {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+table.case-img td {
+  width: 12px !important;
+  height: 12px !important;
+  border: 1px solid rgb(192, 192, 192);
+}
+table.case-img tr:nth-child(2) td {
+  height: 2px !important;
+}
+table.case-img tr td:nth-child(2) {
+  width: 2px !important;
+}
+
+table.case-img tr:nth-child(1) td:nth-child(1).o {background:      rgb(64, 64, 64);}
+table.case-img tr:nth-child(1) td:nth-child(1).m {border-top:  4px rgb(64, 64, 64) solid;}
+table.case-img tr:nth-child(1) td:nth-child(1).p {border-left: 4px rgb(64, 64, 64) solid;}
+
+table.case-img tr:nth-child(1) td:nth-child(3).o {background:      rgb(64, 64, 64);}
+table.case-img tr:nth-child(1) td:nth-child(3).m {border-right:  4px rgb(64, 64, 64) solid;}
+table.case-img tr:nth-child(1) td:nth-child(3).p {border-top: 4px rgb(64, 64, 64) solid;}
+
+table.case-img tr:nth-child(3) td:nth-child(3).o {background:      rgb(64, 64, 64);}
+table.case-img tr:nth-child(3) td:nth-child(3).m {border-bottom:  4px rgb(64, 64, 64) solid;}
+table.case-img tr:nth-child(3) td:nth-child(3).p {border-right: 4px rgb(64, 64, 64) solid;}
+
+table.case-img tr:nth-child(3) td:nth-child(1).o {background:      rgb(64, 64, 64);}
+table.case-img tr:nth-child(3) td:nth-child(1).m {border-left:  4px rgb(64, 64, 64) solid;}
+table.case-img tr:nth-child(3) td:nth-child(1).p {border-bottom: 4px rgb(64, 64, 64) solid;}
+
+table.case-img tr td._ {background: rgb(192, 192, 192);}
+table.case-img tr td.x {background: rgb(192, 192, 192);}
+</style>
+</head>
+<body>
+
+<table class="alg-table">
+<tbody><tr>
+  <td class="title">CLS Algs<br>Lucas Garron<br>Nov 15, 2015</td>
+  <td><span class="case" data-case="x_x___x_m"></span></td>
+  <td><span class="case" data-case="x_x___x_p"></span></td>
+  <td><span class="case" data-case="x_x___x_o"></span></td>
+</tr></tbody>
+<tbody class="algs">
+<tr><td><span class="case" data-case="o_o___o_x"></span></td><td data-case="m00"></td><td data-case="p00"></td><td data-case="o00"></td></tr>
+<tr><td><span class="case" data-case="o_p___o_x"></span></td><td data-case="m01"></td><td data-case="p18"></td><td data-case="o01"></td></tr>
+<tr><td><span class="case" data-case="o_m___o_x"></span></td><td data-case="m02"></td><td data-case="p09"></td><td data-case="o02"></td></tr>
+<tr><td><span class="case" data-case="p_o___o_x"></span></td><td data-case="m03"></td><td data-case="p06"></td><td data-case="o03"></td></tr>
+<tr><td><span class="case" data-case="p_p___o_x"></span></td><td data-case="m04"></td><td data-case="p24"></td><td data-case="o04"></td></tr>
+<tr><td><span class="case" data-case="p_m___o_x"></span></td><td data-case="m05"></td><td data-case="p15"></td><td data-case="o05"></td></tr>
+<tr><td><span class="case" data-case="m_o___o_x"></span></td><td data-case="m06"></td><td data-case="p03"></td><td data-case="o06"></td></tr>
+<tr><td><span class="case" data-case="m_p___o_x"></span></td><td data-case="m07"></td><td data-case="p21"></td><td data-case="o07"></td></tr>
+<tr><td><span class="case" data-case="m_m___o_x"></span></td><td data-case="m08"></td><td data-case="p12"></td><td data-case="o08"></td></tr>
+
+<tr><td><span class="case" data-case="o_o___p_x"></span></td><td data-case="m09"></td><td data-case="p02"></td><td data-case="o09"></td></tr>
+<tr><td><span class="case" data-case="o_p___p_x"></span></td><td data-case="m10"></td><td data-case="p20"></td><td data-case="o10"></td></tr>
+<tr><td><span class="case" data-case="o_m___p_x"></span></td><td data-case="m11"></td><td data-case="p11"></td><td data-case="o11"></td></tr>
+<tr><td><span class="case" data-case="p_o___p_x"></span></td><td data-case="m12"></td><td data-case="p08"></td><td data-case="o12"></td></tr>
+<tr><td><span class="case" data-case="p_p___p_x"></span></td><td data-case="m13"></td><td data-case="p26"></td><td data-case="o13"></td></tr>
+<tr><td><span class="case" data-case="p_m___p_x"></span></td><td data-case="m14"></td><td data-case="p17"></td><td data-case="o14"></td></tr>
+<tr><td><span class="case" data-case="m_o___p_x"></span></td><td data-case="m15"></td><td data-case="p05"></td><td data-case="o15"></td></tr>
+<tr><td><span class="case" data-case="m_p___p_x"></span></td><td data-case="m16"></td><td data-case="p23"></td><td data-case="o16"></td></tr>
+<tr><td><span class="case" data-case="m_m___p_x"></span></td><td data-case="m17"></td><td data-case="p14"></td><td data-case="o17"></td></tr>
+
+<tr><td><span class="case" data-case="o_o___m_x"></span></td><td data-case="m18"></td><td data-case="p01"></td><td data-case="o18"></td></tr>
+<tr><td><span class="case" data-case="o_p___m_x"></span></td><td data-case="m19"></td><td data-case="p19"></td><td data-case="o19"></td></tr>
+<tr><td><span class="case" data-case="o_m___m_x"></span></td><td data-case="m20"></td><td data-case="p10"></td><td data-case="o20"></td></tr>
+<tr><td><span class="case" data-case="p_o___m_x"></span></td><td data-case="m21"></td><td data-case="p07"></td><td data-case="o21"></td></tr>
+<tr><td><span class="case" data-case="p_p___m_x"></span></td><td data-case="m22"></td><td data-case="p25"></td><td data-case="o22"></td></tr>
+<tr><td><span class="case" data-case="p_m___m_x"></span></td><td data-case="m23"></td><td data-case="p16"></td><td data-case="o23"></td></tr>
+<tr><td><span class="case" data-case="m_o___m_x"></span></td><td data-case="m24"></td><td data-case="p04"></td><td data-case="o24"></td></tr>
+<tr><td><span class="case" data-case="m_p___m_x"></span></td><td data-case="m25"></td><td data-case="p22"></td><td data-case="o25"></td></tr>
+<tr><td><span class="case" data-case="m_m___m_x"></span></td><td data-case="m26"></td><td data-case="p13"></td><td data-case="o26"></td></tr>
+
+</tbody>
+</table>
+
+<script>
+
+function caseToTable(s) {
+  var table = document.createElement("table");
+  table.classList.add("case-img");
+  for (var j = 0; j < 3; j++) {
+    var tr = document.createElement("tr");
+    table.appendChild(tr)
+    for (var k = 0; k < 3; k++) {
+      var td = document.createElement("td");
+      td.classList.add(s[j * 3 + k]);
+      tr.appendChild(td)
+    }
+  }
+  return table;
+}
+
+var cases = document.getElementsByClassName("case");
+for (var i = 0; i < cases.length; i++) {
+  var c = cases[i];
+  c.appendChild(caseToTable(c.getAttribute("data-case")));
+}
+</script>
+
+<script type="csv">
+Case,,Alg,Expanded,OBTM,,Rating,Notes
+-00,,(y) [R' D R: U'],(y) [R' D R: U'],Loading...,view,⭐⭐⭐⭐,Allows CP control.
+-01,,(U') K' U2 (K U')2 K',(U') R U' R' U2 (R U R' U')2 R U' R',Loading...,view,⭐⭐⭐⭐,
+-02,,(U') K' U' K2',(U') R U' R' U' R U2' R',Loading...,view,⭐⭐⭐⭐⭐,
+-03,,(U') h' U K' F' K,(U') l' U l U R U' R' F' R U R',11,view,⭐⭐⭐⭐,switch
+-04,,K U K U' K' U2' K,R U R' U R U R' U' R U' R' U2' R U R',Loading...,view,⭐⭐⭐⭐,
+-05,,K2 U [R: K2' U' K'],R U2 R' U [R: R U2' R' U' R U' R'],Loading...,view,⭐⭐,
+-06,,K U' K' U2 K2',R U R' U' R U' R' U2 R U2' R',Loading...,view,⭐⭐⭐,
+-06,,(y') U J2 U' J,(y') U R' U2' R U' R' U' R,7,view,⭐⭐⭐⭐,
+-07,,(U) J U' J2 K2 U K,(U) R' U' R U' R' U2' R2 U2 R' U R U R',13,view,,
+-07,,(U') R2 U2' R' J U K2' U R',(U') R2 U2' R2' U' R U R U2' R' U R',11,view,⭐⭐⭐⭐,"really fast, but you have to grip correctly"
+-08,,K' J2 U J' K,R U' R2' U2' R U R' U R2 U R',11,view,⭐,
+-09,,K U' K' U K',R U R' U' R U' R' U R U' R',11,view,⭐⭐⭐⭐⭐,
+-10,,(y') U' J U2' J y,(y') U' R' U' R U2' R' U' R y,7,view,⭐⭐,
+-11,,J' U' K' U2 K' J,R' U R U' R U' R' U2 R U' R2' U' R,13,view,⭐,
+-12,,(U') K' U2 K',(U') R U' R' U2 R U' R',7,view,⭐⭐⭐⭐⭐,
+-13,,(U) K2' U' K U K,(U) R U2' R' U' R U R' U R U R',11,view,⭐⭐,
+-14,,(U2)' K' U2 K2' U2 K',(U2)' R U' R' U2 R U2' R' U2 R U' R',11,view,⭐⭐⭐,
+-15,,R U' K2' U' K' R',R U' R U2' R' U' R U' R' R',9,view,⭐⭐⭐,
+-16,,(U') (K' U2 K') (J U' J2'),(U') (R U' R' U2 R U' R') (R' U' R U' R' U2 R),13,view,,
+-16,,K' U J U' J2 K',R U' R' U R' U' R U' R' U2' R2 U' R',13,view,⭐⭐,
+-17,,(U2') K U2' (J U' J2) K,(U2') R U R' U2' (R' U' R U' R' U2' R) R U R',13,view,⭐⭐,switch
+-18,,K' U' R U K2' U' K' R',R U' R' U' R U R U2' R' U' R U' R' R',13,view,⭐⭐⭐⭐,
+-19,,(U) R K U K2' U R',(U) R2 U R' U R U2' R' U R',9,view,⭐⭐⭐⭐,10.00
+-20,,(U') (R U')2 (R' U)3 J,(U') (R U')2 (R' U)3 R' U' R,13,view,⭐⭐⭐,"lear; bunch of regrips, but very fun."
+-21,,(U2') l (K' U)3 l',(U2') l (R U' R' U)3 l',14,view,⭐⭐⭐,
+-22,,(U') K' U' J K' J2,(U') R U' R' U' R' U' R2 U' R2' U2' R,11,view,⭐⭐,
+-23,,(U) K U' K2' U' K' U K ,(U) R U R' U' R U2' R' U' R U' R' U R U R' ,15,view,⭐⭐⭐,switch
+-24,,(U2') K J2' K J',(U2') R U R2' U2 R2 U R2' U R,9,view,⭐⭐⭐⭐⭐,
+-24,,(U') K' U2 K U' K',(U') R U' R' U2 R U R' U' R U' R',11,view,⭐⭐⭐⭐⭐,
+-25,,(U) K U K U' K2',(U) R U R' U R U R' U' R U2' R',11,view,⭐⭐⭐⭐,
+-26,,(U') K' U' K' U K2',(U') R U' R' U' R U' R' U R U2' R',11,view,⭐⭐,
++00,,(U') [R' D' R: U],(U') [R' D' R: U],7,view,⭐⭐⭐⭐,Allows CP control.
++01,,(U') K2' U K2' U K2',(U') R U2' R' U R U2' R' U R U2' R',11,view,⭐⭐⭐⭐,
++02,,R U2' R2' F R U K' F' K2,R U2' R2' F R U R U' R' F' R U2 R',13,view,⭐⭐,
++02,,(y' U) J' U J2,(y' U) R' U R U R' U2' R,7,view,⭐⭐⭐⭐,
++03,,K U' R' F' R U K' F,R U R' U' R' F' R U R U' R' F,12,view,⭐⭐⭐,
++03,,(U) K2' U2 K U2 K2',(U) R U2' R' U2 R U R' U2 R U2' R',11,view,⭐⭐⭐,
++03,,(U2') K U K' U' K' U K',(U2') R U R' U R U' R' U' R U' R' U R U' R',15,view,,
++04,,(U2' ) K2' U K2' U2 K,(U2' ) R U2' R' U R U2' R' U2 R U R',11,view,⭐⭐⭐,
++05,,(U) K' U K U' K,(U) R U' R' U R U R' U' R U R',11,view,⭐⭐⭐⭐,
++06,,(U') K2' U K,(U') R U2' R' U R U R',7,view,⭐⭐⭐⭐⭐,
++07,,(U2') K U R K2' U' K' U R',(U2') R U R' U R2 U2' R' U' R U' R' U R',13,view,⭐⭐⭐⭐,
++08,,K' J2 U J' U' K2',R U' R2' U2' R U R' U R U' R U2' R',13,view,⭐⭐⭐,learn
++08,,R2 U R' U R U2 R2 U' R U' R' U2 R U R',R2 U R' U R U2 R2 U' R U' R' U2 R U R',15,view,,learn
++08,,(K2' U' K') R2 U2 R2 U' R2 U' R2,(R U2' R' U' R U' R') R2 U2 R2 U' R2 U' R2,13,view,⭐⭐,learn
++08,,R U' R U2 R2 U' R2 U' R' U R' U' R U R',R U' R U2 R2 U' R2 U' R' U R' U' R U R',15,view,⭐⭐,learn
++09,,(U') K U' K' U' K,(U') R U R' U' R U' R' U' R U R',11,view,⭐⭐⭐⭐,
++10,,(U) K U2' K,(U) R U R' U2' R U R',7,view,⭐⭐⭐⭐⭐,
++11,,(U) [R: U' K U K2'] U' K',(U) [R: U' R U R' U R U2' R'] U' R U' R',13,view,⭐⭐,
++11,,K' U2 R U' R U2' R2' U' R2 U' R2',R U' R' U2 R U' R U2' R2' U' R2 U' R2',13,view,⭐⭐,
++12,,(y' U) J' U2' J',(y' U) R' U R U2' R' U R,7,view,⭐⭐⭐⭐,
++13,,(U) (J2' U J') K' U' K2',(U) (R' U2 R U R' U R) R U' R' U' R U2' R',13,view,⭐⭐⭐,learn
++14,,(U) K U2' K2' U K2',(U) R U R' U2' R U2' R' U R U2' R',11,view,,
++15,,J' U2 [R': J U2 J],R' U R U2 [R': R' U' R U2 R' U' R],11,view,⭐⭐⭐,learn
++16,,K U K' J2 K J',R U R' U R U' R2' U2' R2 U R2' U R,13,view,⭐,
++16,,R U R U R' U R U2' R2' U R U2' R',R U R U R' U R U2' R2' U R U2' R',13,view,⭐⭐,learn
++17,,(U') K' U' K U K2' U K',(U') R U' R' U' R U R' U R U2' R' U R U' R',15,view,⭐,
++18,,U K2' U2 K U K',U R U2' R' U2 R U R' U R U' R',11,view,⭐⭐⭐⭐,
++19,,(U2') K' U K' U' K,(U2') R U' R' U R U' R' U' R U R',11,view,⭐⭐⭐⭐⭐,
++20,,(U) K2' U' K2' U K2' U' K,(U) R U2' R' U' R U2' R' U R U2' R' U' R U R',15,view,⭐⭐,anti-Sune canceling into O00 
++21,,(U') R U' R' U' R2 U R' U R U2 R2,(U') R U' R' U' R2 U R' U R U2 R2,11,view,⭐⭐⭐,learn
++22,,(U) K U (K' U')2 K,(U) R U R' U (R U' R' U')2 R U R',15,view,⭐⭐⭐,learn
++22,,R' U R' U2 R2 U' R' U2 R U' . R2 U2 R2,R' U R' U2 R2 U' R' U2 R U' . R2 U2 R2,13,view,,
++22,,R' U2 R U2 R U' R' U' R' U R2 U R',R' U2 R U2 R U' R' U' R' U R2 U R',13,view,,awkward U push at end
++23,,(U') K2' U K' U' K',(U') R U2' R' U R U' R' U' R U' R',11,view,⭐⭐⭐⭐,
++24,,(U2') K' U2 K U K,(U2') R U' R' U2 R U R' U R U R',11,view,⭐⭐⭐⭐,
++25,,(U2) K' J2 U J' U2 K',(U2) R U' R2' U2' R U R' U R U2 R U' R',13,view,⭐⭐⭐,learn
++26,,(U') K2' U K J U' J2',(U') R U2' R' U R U R2' U' R U' R' U2 R,13,view,,
+O00,,(U') K' U K2' U' K,(U') R U' R' U R U2' R' U' R U R',11,view,⭐⭐⭐⭐⭐,
+O00,,(sledge)3,(R' F R F')3,12,view,,use instead of the other alg for corner control
+O01,,(U2') K2' U2 K' U2 K2',(U2') R U2' R' U2 R U' R' U2 R U2' R',11,view,⭐⭐⭐,
+O01,,(U') K U' K U K U' K',(U') R U R' U' R U R' U R U R' U' R U' R',15,view,,
+O01,,(U2) R U2 R U2 R2 U' R2 U' R' U R',(U2) R U2 R U2 R2 U' R2 U' R' U R',11,view,⭐⭐⭐,
+O02,,U' K2' U [R: U' K U K2],U' R U2' R' U [R: U' R U R' U R U2 R'],13,view,,learn
+O02,,U' J' U2 [R: K2 U2 K] U R',U' R' U R U2 [R: R U2 R' U2 R U R'] U R',13,view,,learn?
+O02,,K U [R: U' K U K2 U'],R U R' U [R: U' R U R' U R U2 R' U'],15,view,,learn?
+O03,,(U2') K' U K U K',(U2') R U' R' U R U R' U R U' R',11,view,⭐⭐⭐⭐⭐,
+O04,,K' (J U' J2') K,R U' R' (R' U' R U' R' U2 R) R U R',11,view,,learn
+O05,,U K U' K2' U K' ,U R U R' U' R U2' R' U R U' R' ,11,view,⭐⭐⭐,
+O06,,K' F K U' R' F' R U,R U' R' F R U R' U' R' F' R U,11,view,⭐⭐⭐⭐⭐,switch
+O07,,(K U')3,(R U R' U')3,11,view,⭐⭐⭐⭐,
+O08,,(U2') K' U' K' U2 K,(U2') R U' R' U' R U' R' U2 R U R',11,view,⭐⭐⭐⭐,
+O09,,(U) K2' U' K2' U' K2',(U) R U2' R' U' R U2' R' U' R U2' R',11,view,⭐⭐⭐,
+O10,,(U') J K' J2 K',(U') R' U' R2 U' R2' U2' R2 U' R',9,view,⭐⭐⭐⭐,
+O10,,(U') K U K' U2 K,(U') R U R' U R U' R' U2 R U R',11,view,⭐⭐⭐⭐,
+O11,,(U) J' U' [R': J K2' J' U'],(U) R' U R U' [R': R' U' R2 U2' R2' U R U'],13,view,⭐⭐⭐,learn
+O11,,(U') K' U' K U' K U2 K',(U') R U' R' U' R U R' U' R U R' U2 R U' R',15,view,⭐⭐,
+O11,,L' R2 U R2 U' L U2 R2 U2 R2,L' R2 U R2 U' L U2 R2 U2 R2,10,view,⭐,
+O12,,(U2') [F: K U K2'],(U2') [F: R U R' U R U2' R'],9,view,⭐⭐⭐,
+O12,,(U2') R2' U2 R U' R U' R' U2 R U R2 U' R2,(U2') R2' U2 R U' R U' R' U2 R U R2 U' R2,13,view,,learn
+O12,,(U2') R' U R (U' R)3 (U R')2,(U2') R' U R (U' R)3 (U R')2,13,view,,learn
+O12,,(U2) R2 U2 R U' R2 U R2 U' R U' R2,(U2) R2 U2 R U' R2 U R2 U' R U' R2,11,view,,learn
+O13,,(U2') K2' U2 K' U K',(U2') R U2' R' U2 R U' R' U R U' R',11,view,⭐⭐⭐,
+O14,,K2' U' [R: K2' U' K' U'],R U2' R' U' [R: R U2' R' U' R U' R' U'],13,view,⭐⭐,learn
+O14,,(K2' U' K') U (K' U' K2'),(R U2' R' U' R U' R') U (R U' R' U' R U2' R'),15,view,⭐⭐,learn
+O15,,K2' U2 K2' U K',R U2' R' U2 R U2' R' U R U' R',11,view,⭐⭐⭐,switch
+O16,,(U2') K' U K U K U' K',(U2') R U' R' U R U R' U R U R' U' R U' R',15,view,⭐⭐⭐,
+O17,,(U) J2 K J' U K,(U) R' U2' R2 U R2' U R U R U R',11,view,⭐⭐⭐⭐⭐,
+O17,,(U) K U' K2' U K U' K',(U) R U R' U' R U2' R' U R U R' U' R U' R',15,view,,
+O18,,(U') K U' K U K',(U') R U R' U' R U R' U R U' R',11,view,⭐⭐⭐⭐⭐,
+O19,,(U) K U' K2' U2 K2',(U) R U R' U' R U2' R' U2 R U2' R',11,view,⭐⭐⭐,
+O20,,K2' U J U' J2 K,R U2' R' U R' U' R U' R' U2' R2 U R',13,view,,
+O21,,(y') (J U)3,(y') (R' U' R U)3,11,view,,
+O22,,(U) K2' U' K2' U2 K',(U) R U2' R' U' R U2' R' U2 R U' R',11,view,⭐⭐,
+O23,,K U2' K2' U2 K,R U R' U2' R U2' R' U2 R U R',11,view,⭐⭐,
+O24,,J2' K' U2' J2' K J2,R' U2 R2 U' R' U2' R' U2 R2 U R2' U2' R,13,view,,learn
+O24,,R U2 R U R' U R U' R2 U R2 U2 R2,R U2 R U R' U R U' R2 U R2 U2 R2,13,view,,learn
+O24,,(U' ) K' U K2' U' K2' U K2',(U' ) R U' R' U R U2' R' U' R U2' R' U R U2' R',15,view,⭐,
+O24,,(K U)2 K' U' K,(R U R' U)2 R U' R' U' R U R',15,view,,learn?
+O25,,(U') K (J2 U J') U' K,(U') R U R' (R' U2' R U R' U R) U' R U R',13,view,,learn
+O25,,(U') (J2 U J') (K U2 K),(U') (R' U2' R U R' U R) (R U R' U2 R U R'),13,view,,learn
+O26,,(U') K U' K U2' K2',(U') R U R' U' R U R' U2' R U2' R',11,view,⭐⭐⭐,
+I0,,"
+J' U' (K J) K' U (J K)
+","
+R' U R U' (R U R2' U' R) R U' R' U (R' U' R2 U R')
+",17,view,,
+I1,,R K2' U' K' U2 R',R2 U2' R' U' R U' R' U2 R',9,view,⭐⭐⭐,
+I2,,K2' U2 K2 U' K,R U2' R' U2 R U2 R' U' R U R',11,view,⭐⭐⭐,
+I3,,K U' K2' U' K,R U R' U' R U2' R' U' R U R',11,view,⭐⭐⭐,
+I4,,K' U' K U' K2',R U' R' U' R U R' U' R U2' R',11,view,⭐⭐⭐⭐,
+I5,,(U) [F': K U K' U K2'],(U) [F': R U R' U R U' R' U R U2' R'],13,view,⭐⭐,
+I5,,(U') R2' U2' R' U' R U' R2' U' R U' R',(U') R2' U2' R' U' R U' R2' U' R U' R',11,view,⭐⭐⭐,learn
+I6,,R U' R' U2 R U' R' U2 R U' R' U2 R U' R',R U' R' U2 R U' R' U2 R U' R' U2 R U' R',15,view,,
+I6,,U2 K U (K U')2 K2',U2 R U R' U (R U R' U')2 R U2' R',15,view,,
+I6,,U K2' U2 K' (U K)2,U R U2' R' U2 R U' R' (U R U R')2,15,view,,
+I6,,(U') R U R D R' U2 R D' R2 U2 R U' R',(U') R U R D R' U2 R D' R2 U2 R U' R',13,view,⭐⭐,LEARN
+I7,,(K2 U2' K U')2,(R U2 R' U2' R U R' U')2,15,view,⭐,
+Im0,,(K' J') U' K (J' K') U J,(R U' R2' U R) U' R U R' (R' U R2 U' R') U R' U' R,17,view,,learn
+Im1,,(U') [R: U2' K U K2'],(U') [R: U2' R U R' U R U2' R'],9,view,⭐⭐⭐⭐,
+Im2,,K' U K2' U2 K2',R U' R' U R U2' R' U2 R U2' R',11,view,⭐⭐⭐,
+Im3,,K' U K2' U K',R U' R' U R U2' R' U R U' R',11,view,⭐⭐⭐⭐⭐,
+Im4,,(U) [F': K2' U' K U' K'],(U) [F': R U2' R' U' R U R' U' R U' R'],13,view,⭐⭐,
+Im4,,(U) R U R' U R2 U R' U R U2 R2,(U) R U R' U R2 U R' U R U2 R2,11,view,⭐⭐⭐⭐,learn
+Im5,,K2 U K' U K,R U2 R' U R U' R' U R U R',11,view,⭐⭐⭐⭐,
+Im6,,(K2 U2 K' U)2,(R U2 R' U2 R U' R' U)2,15,view,⭐,
+Im6,,K2' (U K')2 U' K',R U2' R' (U R U' R')2 U' R U' R',15,view,⭐⭐,learn
+Im6,,F' U F R U R' U' F R' F' R F' U' F,F' U F R U R' U' F R' F' R F' U' F,14,view,,
+Im7,,(U K' U2 K2')2,(U R U' R' U2 R U2' R')2,15,view,⭐,learn
+C0,,.,.,0,view,⭐⭐⭐⭐⭐,
+C1,,K U K2',R U R' U R U2' R',7,view,⭐⭐⭐⭐⭐,
+C2,,K2' U' K',R U2' R' U' R U' R',7,view,⭐⭐⭐⭐⭐,
+C3,,K U K' U K2',R U R' U R U' R' U R U2' R',11,view,⭐⭐⭐⭐,
+C4,,l U' R' D R U R' D' x,l U' R' D R U R' D' x,8,view,⭐⭐⭐⭐,
+C5,,l U R' D R U' R' D' x,l U R' D R U' R' D' x,8,view,⭐⭐⭐⭐,
+C6,,J U (J' U2)2 J,R' U' R U (R' U R U2)2 R' U' R,15,view,⭐⭐⭐,learn
+C6,,R2 D R' U2 R D' R' U2 R',R2 D R' U2 R D' R' U2 R',9,view,⭐,
+C7,,K2' J K' J2,R U2' R2' U' R2 U' R2' U2' R,9,view,⭐⭐⭐⭐,
+,,,,,-,,
+E0,,.,.,0,view,⭐⭐⭐⭐⭐,
+E1,,"[F: [U, R]]","[F: [U, R]]",6,view,⭐⭐⭐⭐⭐,
+E2,,"[F: [R, U]]","[F: [R, U]]",6,view,⭐⭐⭐⭐⭐,
+E3,,k2' U2' k' U2' k2',r U2' r' U2' r U' r' U2' r U2' r',11,view,⭐⭐⭐⭐,
+E4,,K' y' J2,R U' R' y' R' U2' R,6,view,⭐⭐⭐⭐,
+E5,,[x: J' U2' j U],[x: R' U R U2' r' U' r U],8,view,⭐⭐⭐,
+F0,,(y' U) J y,(y' U) R' U' R y,3,view,⭐⭐⭐⭐⭐,
+F1,,F R' F' R,F R' F' R,4,view,⭐⭐⭐⭐,
+F2,,h' U K' h,l' U l U R U' R' l' U' l,10,view,⭐⭐⭐,switch
+F3,,,,,-,,
+F4,,(U') [k': U],(U') [r U' r': U],7,view,⭐⭐⭐⭐⭐,
+F5,,,,,-,,
+F6,,(U2') [k': U2'],(U2') [r U' r': U2'],7,view,⭐⭐⭐⭐,
+F7,,k U2' M' U M,r U r' U2' M' U M,9,view,⭐⭐⭐⭐,
+R0,,(U) K',(U) R U' R',3,view,⭐⭐⭐⭐⭐,
+R1,,R' F R F',R' F R F',4,view,⭐⭐⭐⭐,
+R2,,U [k': U'],U [r U' r': U'],7,view,⭐⭐⭐⭐,
+R2,,(U') h' K U' h,(U') l' U l R U R' U' l' U' l,10,view,⭐⭐⭐⭐,
+R3,,K' R' F R F',R U' R2' F R F',6,view,⭐⭐⭐,
+R4,,[l: U' K],[l: U' R U R'],6,view,⭐⭐⭐,
+R5,,F U K' h,F U R U' R' l' U' l,8,view,⭐⭐⭐,
+R5,,h' K U' F',l' U l R U R' U' F',8,view,⭐⭐⭐,
+R6,,K2' sledge,R U2' R' R' F R F',6,view,⭐⭐,
+R7,,U2' M' U' M U2' k',U2' M' U' M U2' r U' r',9,view,⭐⭐⭐⭐,
+,,,,,-,,
+OLL 1,,,,,-,,
+OLL 2,,F (K U') S (K U') f',F (R U R' U') S (R U R' U') f',12,view,,
+OLL 3,,,,,-,,
+OLL 4,,,,,-,,
+OLL 5,,r' U2' R U R' U r,r' U2' R U R' U r,7,view,,
+OLL 6,,(U2') r U2' R' U' R U' r',(U2') r U2' R' U' R U' r',7,view,,
+OLL 7,,r U J' U2' r',r U R' U R U2' r',Loading...,view,⭐⭐⭐⭐,
+OLL 8,,(U2') r' U' R U' R' U2' r,(U2') r' U' R U' R' U2' r,7,view,,
+OLL 9,,(U') J y k' U k,(U') R' U' R y r U' r' U r U r',10,view,,
+OLL 10,,(U') K y h' U' h,(U') R U R' y l' U l U' l' U' l,10,view,⭐⭐⭐,
+OLL 11,,[M: K U K2' U],[M: R U R' U R U2' R' U],12,view,⭐⭐⭐,
+OLL 12,,(U') M (J U' J2) U' M',(U') M (R' U' R U' R' U2' R) U' M',12,view,,
+OLL 13,,F U K2' U' K F',F U R U2' R' U' R U R' F',10,view,⭐⭐,
+OLL 14,,,,,-,,
+OLL 15,,,,,-,,
+OLL 16,,(U2') [k: K U'],(U2') [r U r': R U R' U'],10,view,⭐⭐⭐⭐,
+OLL 17,,,,,-,,
+OLL 18,,(U') [r: U J' U2] [r': U' K' U2'],(U') [r: U R' U R U2] [r': U' R U' R' U2'],13,view,⭐⭐⭐,
+OLL 19,,[r': U2' K U] [r: U2' J U'],[r': U2' R U R' U] [r: U2' R' U' R U'],13,view,⭐⭐⭐,
+OLL 20,,(U) M'U' J U M2' U' R' U r,(U) M'U' R' U' R U M2' U' R' U r,13,view,⭐⭐⭐⭐,
+OLL 21,,,,,-,,see CLS
+OLL 22,,,,,-,,see CLS
+OLL 23,,,,,-,,see CLS
+OLL 24,,,,,-,,see CLS
+OLL 25,,,,,-,,see CLS
+OLL 26,,,,,-,,see CLS
+OLL 27,,,,,-,,see CLS
+OLL 28,,r U R' U' M U K',r U R' U' M U R U' R',10,view,⭐⭐⭐,
+OLL 29,,,,,-,,
+OLL 30,,(U2') F R' F R2 U' R' U' K F2,(U2') F R' F R2 U' R' U' R U R' F2,11,view,⭐⭐⭐,
+OLL 31,,(U) sledge' U K U' K',(U) F R' F' R U R U R' U' R U' R',12,view,⭐⭐,
+OLL 32,,,,,-,,
+OLL 33,,K U' R' F R F',R U R' U' R' F R F',8,view,⭐⭐⭐⭐⭐,
+OLL 34,,K U' y l' U' L U M,R U R' U' y l' U' L U M,10,view,⭐⭐,
+OLL 35,,K2' sledge K2',R U2' R' R' F R F' R U2' R',9,view,⭐⭐⭐,
+OLL 36,,,,,-,,
+OLL 37,,(U) [F: K' U' K],(U) [F: R U' R' U' R U R'],9,view,⭐⭐⭐⭐,
+OLL 38,,(U2') K U K' U' sledge,(U2') R U R' U R U' R' U' R' F R F',12,view,⭐⭐⭐,
+OLL 39,,,,,-,,
+OLL 40,,h' U R' U' F' U R,l' U l U R' U' F' U R,9,view,⭐⭐,
+OLL 41,,(U2') K U K2' [F: K U'],(U2') R U R' U R U2' R' [F: R U R' U'],13,view,,
+OLL 42,,J U' J2' [F: K U'],R' U' R U' R' U2 R [F: R U R' U'],13,view,⭐⭐,Sune + FRURUF
+OLL 43,,,,,-,,
+OLL 44,,(U2') [F: U K'],(U2') [F: U R U' R'],6,view,,
+OLL 45,,[F: K U'],[F: R U R' U'],6,view,⭐⭐⭐⭐⭐,
+OLL 46,,[R' U': sledge],[R' U': R' F R F'],8,view,⭐⭐⭐,
+OLL 47,,,,,-,,
+OLL 48,,[F: (K U')2],[F: (R U R' U')2],10,view,⭐⭐⭐⭐,
+OLL 49,,i' h' i h,l U' l' l' U l2 U l' l' U' l,9,view,⭐⭐⭐,
+OLL 50,,(U') [r: U2' J U'] [r': U' K' U2'],(U') [r: U2' R' U' R U'] [r': U' R U' R' U2'],13,view,⭐⭐⭐,"switch, try more combos of wide Sunbes"
+OLL 51,,[F: (U K')2],[F: (U R U' R')2],10,view,⭐⭐⭐,
+OLL 52,,J U' R' U y' J' B,R' U' R U' R' U y' R' U R B,10,view,⭐⭐⭐,
+OLL 53,,(U2') r' U' R U' R' U R U' R' U2' r,(U2') r' U' R U' R' U R U' R' U2' r,11,view,⭐⭐,
+OLL 54,,r U J' U' J' U2' r',r U R' U R U' R' U R U2' r',11,view,⭐⭐⭐,
+OLL 55,,,,,-,,
+OLL 56,,[k: (U K')2],[r U r': (U R U' R')2],14,view,⭐⭐⭐⭐,
+OLL 57,,K U' M' U R U' r',R U R' U' M' U R U' r',10,view,⭐⭐⭐,
+</script>
+
+<script>
+/* Copyright 2012-2013 Daniel Tillin full license details at http://code.google.com/p/csv-to-array/#License */String.prototype.csvToArray=function(e){var t={fSep:",",rSep:"\r\n",quot:'"',head:false,trim:false};if(e){for(var n in t){if(!e[n])e[n]=t[n]}}else{e=t}var r=[[""]];for(var i=f=p=q=0;p<this.length;p++){switch(c=this.charAt(p)){case e.quot:if(q&&this.charAt(p+1)==e.quot){r[i][f]+=e.quot;++p}else{q^=1}break;case e.fSep:if(!q){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[i][++f]=""}else{r[i][f]+=c}break;case e.rSep.charAt(0):if(!q&&(!e.rSep.charAt(1)||e.rSep.charAt(1)&&e.rSep.charAt(1)==this.charAt(p+1))){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[++i]=[""];r[i][f=0]="";if(e.rSep.charAt(1)){++p}}else{r[i][f]+=c}break;default:r[i][f]+=c}}if(e.head){r.shift()}if(r[r.length-1].length<r[0].length){r.pop()}return r}
+</script>
+
+<script>
+var csvString = document.querySelector("script[type=csv]").innerHTML;
+data = csvString.csvToArray({rSep: "\n"});
+
+for (var i in data) {
+  var line = data[i];
+  if (line[0].match(/^[-\+O]\d\d/)) {
+    var select = line[0].replace("-", "m").replace("+", "p").replace("O", "o");
+    var cell = document.querySelector("td[data-case=" + select + "]")
+    if (!cell.textContent) {
+      var caseName = document.createElement("span");
+      caseName.classList.add("case-name");
+      caseName.textContent = line[0];
+      cell.appendChild(caseName);
+
+      if (line[7] && (line[7].match("learn") || line[7].match("LEARN"))){
+        caseName.classList.add("learn");
+      }
+
+      var alg = document.createElement("span");
+      alg.textContent += line[2];
+      cell.appendChild(alg);
+    }
+  }
+}
+
+</script>
+
+</body>
+</html>
