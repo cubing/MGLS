@@ -9,9 +9,13 @@
   font-family: Helvetica;
 }
 
+body {
+  font-size: 75%;
+}
+
 table.alg-table {
   border-collapse: collapse;
-  width: 850px;
+  width: 900px;
   height: 1100px;
     margin: 0 auto;
 }
@@ -33,6 +37,9 @@ table.alg-table > tbody > tr {
 
 table.alg-table > tbody > tr > td {
   text-align: center;
+}
+
+table.alg-table > tbody.algs > tr > td {
   border: 1px solid rgb(192, 192, 192);
 }
 
@@ -41,15 +48,26 @@ table.alg-table > tbody:first-child > tr:first-child > td:first-child {
 }
 
 table.alg-table > tbody > tr > td:first-child {
-  width: 50px;
+  width: 60px;
   padding: 0px 0px;
   box-sizing: border-box;
   text-align: center;
 }
 
+table.alg-table tbody.header tr td:not(:first-child):not(:last-child) {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 table.alg-table tbody.algs tr td:not(:first-child) {
   padding-left: 2px;
   text-align: left;
+}
+
+table.alg-table > tbody.header > tr > td:last-child,
+table.alg-table > tbody.algs > tr > td:last-child {
+  border-left: 2px solid rgb(64, 64, 64);
+  padding-left: 12px;
 }
 
 span.case-name {
@@ -63,10 +81,30 @@ span.case-name.learn {
   text-decoration: underline;
 }
 
+table.alg-table > tbody > tr > td.C-I-Im-header {
+  font-weight: bold;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  border-right: none;
+  text-align: left;
+}
+
+
+table.alg-table > tbody > tr > td > a {
+  color: blue;
+  text-decoration: none;
+}
+table.alg-table > tbody > tr > td > a:hover {
+  text-decoration: underline;
+}
+
 
 table.case-img {
   border-collapse: collapse;
   margin: 0 auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 table.case-img td {
   width: 12px !important;
@@ -98,48 +136,69 @@ table.case-img tr:nth-child(3) td:nth-child(1).p {border-bottom: 4px rgb(64, 64,
 
 table.case-img tr td._ {background: rgb(192, 192, 192);}
 table.case-img tr td.x {background: rgb(192, 192, 192);}
+
+
+table.alg-table > tbody > tr > td:last-child span.case-name {
+  margin: 0 8px;
+}
 </style>
 </head>
 <body>
 
 <table class="alg-table">
-<tbody><tr>
+<tbody class="header"><tr>
   <td class="title">CLS Algs<br>Lucas Garron<br>Nov 15, 2015</td>
-  <td><span class="case" data-case="x_x___x_m"></span></td>
-  <td><span class="case" data-case="x_x___x_p"></span></td>
-  <td><span class="case" data-case="x_x___x_o"></span></td>
+  <td>-&nbsp;&nbsp;<span class="case" data-case="x_x___x_m"></span></td>&nbsp;&nbsp;
+  <td>+&nbsp;&nbsp;<span class="case" data-case="x_x___x_p"></span></td>&nbsp;&nbsp;
+  <td>O&nbsp;&nbsp;<span class="case" data-case="x_x___x_o"></span></td>&nbsp;&nbsp;
+  <td class="C-I-Im-header">C (DFR solved)</td>
 </tr></tbody>
 <tbody class="algs">
-<tr><td><span class="case" data-case="o_o___o_x"></span></td><td data-case="m00"></td><td data-case="p00"></td><td data-case="o00"></td></tr>
-<tr><td><span class="case" data-case="o_p___o_x"></span></td><td data-case="m01"></td><td data-case="p18"></td><td data-case="o01"></td></tr>
-<tr><td><span class="case" data-case="o_m___o_x"></span></td><td data-case="m02"></td><td data-case="p09"></td><td data-case="o02"></td></tr>
-<tr><td><span class="case" data-case="p_o___o_x"></span></td><td data-case="m03"></td><td data-case="p06"></td><td data-case="o03"></td></tr>
-<tr><td><span class="case" data-case="p_p___o_x"></span></td><td data-case="m04"></td><td data-case="p24"></td><td data-case="o04"></td></tr>
-<tr><td><span class="case" data-case="p_m___o_x"></span></td><td data-case="m05"></td><td data-case="p15"></td><td data-case="o05"></td></tr>
-<tr><td><span class="case" data-case="m_o___o_x"></span></td><td data-case="m06"></td><td data-case="p03"></td><td data-case="o06"></td></tr>
-<tr><td><span class="case" data-case="m_p___o_x"></span></td><td data-case="m07"></td><td data-case="p21"></td><td data-case="o07"></td></tr>
-<tr><td><span class="case" data-case="m_m___o_x"></span></td><td data-case="m08"></td><td data-case="p12"></td><td data-case="o08"></td></tr>
+<tr><td><span class="case" data-case="o_o___o_x"></span></td><td data-case="m00"></td><td data-case="p00"></td><td data-case="o00"></td><td data-case="C0"><span class="case" data-case="o_o___o_o"></span></td></tr>
+<tr><td><span class="case" data-case="o_p___o_x"></span></td><td data-case="m01"></td><td data-case="p18"></td><td data-case="o01"></td><td data-case="C1"><span class="case" data-case="m_o___m_m"></span></td></tr>
+<tr><td><span class="case" data-case="o_m___o_x"></span></td><td data-case="m02"></td><td data-case="p09"></td><td data-case="o02"></td><td data-case="C2"><span class="case" data-case="p_o___p_p"></span></td></tr>
+<tr><td><span class="case" data-case="p_o___o_x"></span></td><td data-case="m03"></td><td data-case="p06"></td><td data-case="o03"></td><td data-case="C3"><span class="case" data-case="p_m___m_p"></span></td></tr>
+<tr><td><span class="case" data-case="p_p___o_x"></span></td><td data-case="m04"></td><td data-case="p24"></td><td data-case="o04"></td><td data-case="C4"><span class="case" data-case="m_o___o_p"></span></td></tr>
+<tr><td><span class="case" data-case="p_m___o_x"></span></td><td data-case="m05"></td><td data-case="p15"></td><td data-case="o05"></td><td data-case="C5"><span class="case" data-case="o_o___p_m"></span></td></tr>
+<tr><td><span class="case" data-case="m_o___o_x"></span></td><td data-case="m06"></td><td data-case="p03"></td><td data-case="o06"></td><td data-case="C6"><span class="case" data-case="o_o___m_p"></span></td></tr>
+<tr><td><span class="case" data-case="m_p___o_x"></span></td><td data-case="m07"></td><td data-case="p21"></td><td data-case="o07"></td><td data-case="C7"><span class="case" data-case="p_p___m_m"></span></td></tr>
+<tr><td><span class="case" data-case="m_m___o_x"></span></td><td data-case="m08"></td><td data-case="p12"></td><td data-case="o08"></td><td class="C-I-Im-header">I (DFR clockwise)</td></tr>
 
-<tr><td><span class="case" data-case="o_o___p_x"></span></td><td data-case="m09"></td><td data-case="p02"></td><td data-case="o09"></td></tr>
-<tr><td><span class="case" data-case="o_p___p_x"></span></td><td data-case="m10"></td><td data-case="p20"></td><td data-case="o10"></td></tr>
-<tr><td><span class="case" data-case="o_m___p_x"></span></td><td data-case="m11"></td><td data-case="p11"></td><td data-case="o11"></td></tr>
-<tr><td><span class="case" data-case="p_o___p_x"></span></td><td data-case="m12"></td><td data-case="p08"></td><td data-case="o12"></td></tr>
-<tr><td><span class="case" data-case="p_p___p_x"></span></td><td data-case="m13"></td><td data-case="p26"></td><td data-case="o13"></td></tr>
-<tr><td><span class="case" data-case="p_m___p_x"></span></td><td data-case="m14"></td><td data-case="p17"></td><td data-case="o14"></td></tr>
-<tr><td><span class="case" data-case="m_o___p_x"></span></td><td data-case="m15"></td><td data-case="p05"></td><td data-case="o15"></td></tr>
-<tr><td><span class="case" data-case="m_p___p_x"></span></td><td data-case="m16"></td><td data-case="p23"></td><td data-case="o16"></td></tr>
-<tr><td><span class="case" data-case="m_m___p_x"></span></td><td data-case="m17"></td><td data-case="p14"></td><td data-case="o17"></td></tr>
+<tr><td><span class="case" data-case="o_o___p_x"></span></td><td data-case="m09"></td><td data-case="p02"></td><td data-case="o09"></td><td data-case="I0"><span class="case" data-case="o_o___o_m"></span></td></tr>
+<tr><td><span class="case" data-case="o_p___p_x"></span></td><td data-case="m10"></td><td data-case="p20"></td><td data-case="o10"></td><td data-case="I1"><span class="case" data-case="p_o___p_o"></span></td></tr>
+<tr><td><span class="case" data-case="o_m___p_x"></span></td><td data-case="m11"></td><td data-case="p11"></td><td data-case="o11"></td><td data-case="I2"><span class="case" data-case="o_p___p_o"></span></td></tr>
+<tr><td><span class="case" data-case="p_o___p_x"></span></td><td data-case="m12"></td><td data-case="p08"></td><td data-case="o12"></td><td data-case="I3"><span class="case" data-case="m_o___p_m"></span></td></tr>
+<tr><td><span class="case" data-case="p_p___p_x"></span></td><td data-case="m13"></td><td data-case="p26"></td><td data-case="o13"></td><td data-case="I4"><span class="case" data-case="m_p___m_o"></span></td></tr>
+<tr><td><span class="case" data-case="p_m___p_x"></span></td><td data-case="m14"></td><td data-case="p17"></td><td data-case="o14"></td><td data-case="I5"><span class="case" data-case="m_m___p_o"></span></td></tr>
+<tr><td><span class="case" data-case="m_o___p_x"></span></td><td data-case="m15"></td><td data-case="p05"></td><td data-case="o15"></td><td data-case="I6"><span class="case" data-case="p_p___p_m"></span></td></tr>
+<tr><td><span class="case" data-case="m_p___p_x"></span></td><td data-case="m16"></td><td data-case="p23"></td><td data-case="o16"></td><td data-case="I7"><span class="case" data-case="m_m___m_m"></span></td></tr>
+<tr><td><span class="case" data-case="m_m___p_x"></span></td><td data-case="m17"></td><td data-case="p14"></td><td data-case="o17"></td><td class="C-I-Im-header">I (DFR counter-clockwise)</td></tr>
 
-<tr><td><span class="case" data-case="o_o___m_x"></span></td><td data-case="m18"></td><td data-case="p01"></td><td data-case="o18"></td></tr>
-<tr><td><span class="case" data-case="o_p___m_x"></span></td><td data-case="m19"></td><td data-case="p19"></td><td data-case="o19"></td></tr>
-<tr><td><span class="case" data-case="o_m___m_x"></span></td><td data-case="m20"></td><td data-case="p10"></td><td data-case="o20"></td></tr>
-<tr><td><span class="case" data-case="p_o___m_x"></span></td><td data-case="m21"></td><td data-case="p07"></td><td data-case="o21"></td></tr>
-<tr><td><span class="case" data-case="p_p___m_x"></span></td><td data-case="m22"></td><td data-case="p25"></td><td data-case="o22"></td></tr>
-<tr><td><span class="case" data-case="p_m___m_x"></span></td><td data-case="m23"></td><td data-case="p16"></td><td data-case="o23"></td></tr>
-<tr><td><span class="case" data-case="m_o___m_x"></span></td><td data-case="m24"></td><td data-case="p04"></td><td data-case="o24"></td></tr>
-<tr><td><span class="case" data-case="m_p___m_x"></span></td><td data-case="m25"></td><td data-case="p22"></td><td data-case="o25"></td></tr>
-<tr><td><span class="case" data-case="m_m___m_x"></span></td><td data-case="m26"></td><td data-case="p13"></td><td data-case="o26"></td></tr>
+<tr><td><span class="case" data-case="o_o___m_x"></span></td><td data-case="m18"></td><td data-case="p01"></td><td data-case="o18"></td><td data-case="Im0"><span class="case" data-case="o_o___o_p"></span></td></tr>
+<tr><td><span class="case" data-case="o_p___m_x"></span></td><td data-case="m19"></td><td data-case="p19"></td><td data-case="o19"></td><td data-case="Im1"><span class="case" data-case="m_m___o_o"></span></td></tr>
+<tr><td><span class="case" data-case="o_m___m_x"></span></td><td data-case="m20"></td><td data-case="p10"></td><td data-case="o20"></td><td data-case="Im2"><span class="case" data-case="o_m___m_o"></span></td></tr>
+<tr><td><span class="case" data-case="p_o___m_x"></span></td><td data-case="m21"></td><td data-case="p07"></td><td data-case="o21"></td><td data-case="Im3"><span class="case" data-case="p_m___o_p"></span></td></tr>
+<tr><td><span class="case" data-case="p_p___m_x"></span></td><td data-case="m22"></td><td data-case="p25"></td><td data-case="o22"></td><td data-case="Im4"><span class="case" data-case="p_p___m_o"></span></td></tr>
+<tr><td><span class="case" data-case="p_m___m_x"></span></td><td data-case="m23"></td><td data-case="p16"></td><td data-case="o23"></td><td data-case="Im5"><span class="case" data-case="p_m___p_o"></span></td></tr>
+<tr><td><span class="case" data-case="m_o___m_x"></span></td><td data-case="m24"></td><td data-case="p04"></td><td data-case="o24"></td><td data-case="Im6"><span class="case" data-case="m_m___m_p"></span></td></tr>
+<tr><td><span class="case" data-case="m_p___m_x"></span></td><td data-case="m25"></td><td data-case="p22"></td><td data-case="o25"></td><td data-case="Im7"><span class="case" data-case="p_p___p_p"></span></td></tr>
+<tr><td><span class="case" data-case="m_m___m_x"></span></td><td data-case="m26"></td><td data-case="p13"></td><td data-case="o26"></td><td></td></tr>
 
+</tbody>
+
+<tbody>
+<tr><td colspan=5 style="text-align: center">
+[A: B] = A B A'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[A, B] = A B A' B'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+H = (L' U' L)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+H = (L' U' L)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+I = (L U L')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+J = (R' U' R)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+K = (R U R')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+h = (l' U' l)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i = (l U l')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+j = (r' U' r)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+k = (r U r')</td></tr>
 </tbody>
 </table>
 
@@ -190,7 +249,7 @@ Case,,Alg,Expanded,OBTM,,Rating,Notes
 -16,,(U') (K' U2 K') (J U' J2'),(U') (R U' R' U2 R U' R') (R' U' R U' R' U2 R),13,view,,
 -16,,K' U J U' J2 K',R U' R' U R' U' R U' R' U2' R2 U' R',13,view,⭐⭐,
 -17,,(U2') K U2' (J U' J2) K,(U2') R U R' U2' (R' U' R U' R' U2' R) R U R',13,view,⭐⭐,switch
--18,,K' U' R U K2' U' K' R',R U' R' U' R U R U2' R' U' R U' R' R',13,view,⭐⭐⭐⭐,
+-18,,K' U' [R: U K2' U' K'],R U' R' U' [R: U R U2' R' U' R U' R'],13,view,⭐⭐⭐⭐,
 -19,,(U) R K U K2' U R',(U) R2 U R' U R U2' R' U R',9,view,⭐⭐⭐⭐,10.00
 -20,,(U') (R U')2 (R' U)3 J,(U') (R U')2 (R' U)3 R' U' R,13,view,⭐⭐⭐,"lear; bunch of regrips, but very fun."
 -21,,(U2') l (K' U)3 l',(U2') l (R U' R' U)3 l',14,view,⭐⭐⭐,
@@ -202,7 +261,7 @@ Case,,Alg,Expanded,OBTM,,Rating,Notes
 -26,,(U') K' U' K' U K2',(U') R U' R' U' R U' R' U R U2' R',11,view,⭐⭐,
 +00,,(U') [R' D' R: U],(U') [R' D' R: U],7,view,⭐⭐⭐⭐,Allows CP control.
 +01,,(U') K2' U K2' U K2',(U') R U2' R' U R U2' R' U R U2' R',11,view,⭐⭐⭐⭐,
-+02,,R U2' R2' F R U K' F' K2,R U2' R2' F R U R U' R' F' R U2 R',13,view,⭐⭐,
++02,,K2' h' U K' F' K2,R U2' R' l' U l U R U' R' F' R U2 R',14,view,⭐⭐,
 +02,,(y' U) J' U J2,(y' U) R' U R U R' U2' R,7,view,⭐⭐⭐⭐,
 +03,,K U' R' F' R U K' F,R U R' U' R' F' R U R U' R' F,12,view,⭐⭐⭐,
 +03,,(U) K2' U2 K U2 K2',(U) R U2' R' U2 R U R' U2 R U2' R',11,view,⭐⭐⭐,
@@ -210,7 +269,7 @@ Case,,Alg,Expanded,OBTM,,Rating,Notes
 +04,,(U2' ) K2' U K2' U2 K,(U2' ) R U2' R' U R U2' R' U2 R U R',11,view,⭐⭐⭐,
 +05,,(U) K' U K U' K,(U) R U' R' U R U R' U' R U R',11,view,⭐⭐⭐⭐,
 +06,,(U') K2' U K,(U') R U2' R' U R U R',7,view,⭐⭐⭐⭐⭐,
-+07,,(U2') K U R K2' U' K' U R',(U2') R U R' U R2 U2' R' U' R U' R' U R',13,view,⭐⭐⭐⭐,
++07,,(U2') K U [R: K2' U' K' U],(U2') R U R' U [R: R U2' R' U' R U' R' U],13,view,⭐⭐⭐⭐,
 +08,,K' J2 U J' U' K2',R U' R2' U2' R U R' U R U' R U2' R',13,view,⭐⭐⭐,learn
 +08,,R2 U R' U R U2 R2 U' R U' R' U2 R U R',R2 U R' U R U2 R2 U' R U' R' U2 R U R',15,view,,learn
 +08,,(K2' U' K') R2 U2 R2 U' R2 U' R2,(R U2' R' U' R U' R') R2 U2 R2 U' R2 U' R2,13,view,⭐⭐,learn
@@ -229,7 +288,7 @@ Case,,Alg,Expanded,OBTM,,Rating,Notes
 +18,,U K2' U2 K U K',U R U2' R' U2 R U R' U R U' R',11,view,⭐⭐⭐⭐,
 +19,,(U2') K' U K' U' K,(U2') R U' R' U R U' R' U' R U R',11,view,⭐⭐⭐⭐⭐,
 +20,,(U) K2' U' K2' U K2' U' K,(U) R U2' R' U' R U2' R' U R U2' R' U' R U R',15,view,⭐⭐,anti-Sune canceling into O00 
-+21,,(U') R U' R' U' R2 U R' U R U2 R2,(U') R U' R' U' R2 U R' U R U2 R2,11,view,⭐⭐⭐,learn
++21,,(U') K' U' [R: K U K2'],(U') R U' R' U' [R: R U R' U R U2' R'],11,view,⭐⭐⭐,learn
 +22,,(U) K U (K' U')2 K,(U) R U R' U (R U' R' U')2 R U R',15,view,⭐⭐⭐,learn
 +22,,R' U R' U2 R2 U' R' U2 R U' . R2 U2 R2,R' U R' U2 R2 U' R' U2 R U' . R2 U2 R2,13,view,,
 +22,,R' U2 R U2 R U' R' U' R' U R2 U R',R' U2 R U2 R U' R' U' R' U R2 U R',13,view,,awkward U push at end
@@ -248,7 +307,7 @@ O02,,K U [R: U' K U K2 U'],R U R' U [R: U' R U R' U R U2 R' U'],15,view,,learn?
 O03,,(U2') K' U K U K',(U2') R U' R' U R U R' U R U' R',11,view,⭐⭐⭐⭐⭐,
 O04,,K' (J U' J2') K,R U' R' (R' U' R U' R' U2 R) R U R',11,view,,learn
 O05,,U K U' K2' U K' ,U R U R' U' R U2' R' U R U' R' ,11,view,⭐⭐⭐,
-O06,,K' F K U' R' F' R U,R U' R' F R U R' U' R' F' R U,11,view,⭐⭐⭐⭐⭐,switch
+O06,,K' F K U' h U,R U' R' F R U R' U' l' U' l U,11,view,⭐⭐⭐⭐⭐,switch
 O07,,(K U')3,(R U R' U')3,11,view,⭐⭐⭐⭐,
 O08,,(U2') K' U' K' U2 K,(U2') R U' R' U' R U' R' U2 R U R',11,view,⭐⭐⭐⭐,
 O09,,(U) K2' U' K2' U' K2',(U) R U2' R' U' R U2' R' U' R U2' R',11,view,⭐⭐⭐,
@@ -281,18 +340,14 @@ O24,,(K U)2 K' U' K,(R U R' U)2 R U' R' U' R U R',15,view,,learn?
 O25,,(U') K (J2 U J') U' K,(U') R U R' (R' U2' R U R' U R) U' R U R',13,view,,learn
 O25,,(U') (J2 U J') (K U2 K),(U') (R' U2' R U R' U R) (R U R' U2 R U R'),13,view,,learn
 O26,,(U') K U' K U2' K2',(U') R U R' U' R U R' U2' R U2' R',11,view,⭐⭐⭐,
-I0,,"
-J' U' (K J) K' U (J K)
-","
-R' U R U' (R U R2' U' R) R U' R' U (R' U' R2 U R')
-",17,view,,
+I0,,J' U' (K J) K' U (J K),R' U R U' (R U R2' U' R) R U' R' U (R' U' R2 U R'),17,view,,
 I1,,R K2' U' K' U2 R',R2 U2' R' U' R U' R' U2 R',9,view,⭐⭐⭐,
 I2,,K2' U2 K2 U' K,R U2' R' U2 R U2 R' U' R U R',11,view,⭐⭐⭐,
 I3,,K U' K2' U' K,R U R' U' R U2' R' U' R U R',11,view,⭐⭐⭐,
 I4,,K' U' K U' K2',R U' R' U' R U R' U' R U2' R',11,view,⭐⭐⭐⭐,
 I5,,(U) [F': K U K' U K2'],(U) [F': R U R' U R U' R' U R U2' R'],13,view,⭐⭐,
 I5,,(U') R2' U2' R' U' R U' R2' U' R U' R',(U') R2' U2' R' U' R U' R2' U' R U' R',11,view,⭐⭐⭐,learn
-I6,,R U' R' U2 R U' R' U2 R U' R' U2 R U' R',R U' R' U2 R U' R' U2 R U' R' U2 R U' R',15,view,,
+I6,,K' U2 K' U2 K' U2 K',R U' R' U2 R U' R' U2 R U' R' U2 R U' R',15,view,,
 I6,,U2 K U (K U')2 K2',U2 R U R' U (R U R' U')2 R U2' R',15,view,,
 I6,,U K2' U2 K' (U K)2,U R U2' R' U2 R U' R' (U R U R')2,15,view,,
 I6,,(U') R U R D R' U2 R D' R2 U2 R U' R',(U') R U R D R' U2 R D' R2 U2 R U' R',13,view,⭐⭐,LEARN
@@ -312,8 +367,8 @@ C0,,.,.,0,view,⭐⭐⭐⭐⭐,
 C1,,K U K2',R U R' U R U2' R',7,view,⭐⭐⭐⭐⭐,
 C2,,K2' U' K',R U2' R' U' R U' R',7,view,⭐⭐⭐⭐⭐,
 C3,,K U K' U K2',R U R' U R U' R' U R U2' R',11,view,⭐⭐⭐⭐,
-C4,,l U' R' D R U R' D' x,l U' R' D R U R' D' x,8,view,⭐⭐⭐⭐,
-C5,,l U R' D R U' R' D' x,l U R' D R U' R' D' x,8,view,⭐⭐⭐⭐,
+C4,,"x' [R U' R', D] x","x' [R U' R', D] x",8,view,⭐⭐⭐⭐,
+C5,,"x' [R U R', D] x","x' [R U R', D] x",8,view,⭐⭐⭐⭐,
 C6,,J U (J' U2)2 J,R' U' R U (R' U R U2)2 R' U' R,15,view,⭐⭐⭐,learn
 C6,,R2 D R' U2 R D' R' U2 R',R2 D R' U2 R D' R' U2 R',9,view,⭐,
 C7,,K2' J K' J2,R U2' R2' U' R2 U' R2' U2' R,9,view,⭐⭐⭐⭐,
@@ -410,12 +465,17 @@ OLL 57,,K U' M' U R U' r',R U R' U' M' U R U' r',10,view,⭐⭐⭐,
 var csvString = document.querySelector("script[type=csv]").innerHTML;
 data = csvString.csvToArray({rSep: "\n"});
 
+var done = {};
+
 for (var i in data) {
   var line = data[i];
-  if (line[0].match(/^[-\+O]\d\d/)) {
+  if (line[0].match(/^([-\+OIC]|(Im))\d\d?/)) {
     var select = line[0].replace("-", "m").replace("+", "p").replace("O", "o");
-    var cell = document.querySelector("td[data-case=" + select + "]")
-    if (!cell.textContent) {
+      console.log(select);
+    if (!(select in done)) {
+      done[select] = line[2];
+
+      var cell = document.querySelector("td[data-case=" + select + "]")
       var caseName = document.createElement("span");
       caseName.classList.add("case-name");
       caseName.textContent = line[0];
@@ -425,8 +485,9 @@ for (var i in data) {
         caseName.classList.add("learn");
       }
 
-      var alg = document.createElement("span");
+      var alg = document.createElement("a");
       alg.textContent += line[2];
+      alg.href = "https://alg.cubing.net?stage=CLS&type=alg&alg=" + line[3];
       cell.appendChild(alg);
     }
   }
