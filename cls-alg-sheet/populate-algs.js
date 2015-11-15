@@ -23,7 +23,7 @@ function populateAlgs(csvString) {
 
         var alg = document.createElement("a");
         alg.textContent += line[2];
-        alg.href = "https://alg.cubing.net?stage=CLS&type=alg&alg=" + line[3];
+        alg.href = "https://alg.cubing.net?stage=CLS&type=alg&title=CLS Case " + line[0] + "&alg=" + line[3];
         cell.appendChild(alg);
       }
     }
