@@ -1,269 +1,81 @@
 <!DOCTYPE html>
 <html>
-<title>CLS</title>
 <head>
-<style>
-* {
-  padding: 0;
-  margin: 0;
-  font-family: Helvetica;
-}
+  <title>CLS Algs</title>
+  <link rel="stylesheet" href="alg-table.css">
+  <link rel="stylesheet" href="case-diagram.css">
 
-body {
-  font-size: 75%;
-}
-
-table.alg-table {
-  border-collapse: collapse;
-  width: 900px;
-  height: 1100px;
-    margin: 0 auto;
-}
-
-@media screen {
-  table.alg-table {
-    margin: 2em auto;
-  }
-}
-
-.title {
-  font-size: 8px;
-  line-height: 1.25em;
-}
-
-table.alg-table > tbody > tr {
-  height: 40px;
-}
-
-table.alg-table > tbody > tr > td {
-  text-align: center;
-}
-
-table.alg-table > tbody.algs > tr > td {
-  border: 1px solid rgb(192, 192, 192);
-}
-
-table.alg-table > tbody:first-child > tr:first-child > td:first-child {
-  border: none;
-}
-
-table.alg-table > tbody > tr > td:first-child {
-  width: 60px;
-  padding: 0px 0px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-table.alg-table tbody.header tr td:not(:first-child):not(:last-child) {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-table.alg-table tbody.algs tr td:not(:first-child) {
-  padding-left: 2px;
-  text-align: left;
-}
-
-table.alg-table > tbody.header > tr > td:last-child,
-table.alg-table > tbody.algs > tr > td:last-child {
-  border-left: 2px solid rgb(64, 64, 64);
-  padding-left: 12px;
-}
-
-span.case-name {
-  margin-right: 4px;
-  color: rgba(0, 0, 0, 0.5);
-  border-right: 1px solid rgba(0, 0, 0, 0.25);
-  padding: 4px;
-}
-
-span.case-name.learn {
-  text-decoration: underline;
-}
-
-table.alg-table > tbody > tr > td.C-I-Im-header {
-  font-weight: bold;
-  vertical-align: bottom;
-  padding-bottom: 5px;
-  font-size: 1.25em;
-  border-right: none;
-  text-align: left;
-}
-
-
-table.alg-table > tbody > tr > td > a {
-  color: blue;
-  text-decoration: none;
-}
-table.alg-table > tbody > tr > td > a:hover {
-  text-decoration: underline;
-}
-
-
-table.case-img {
-  border-collapse: collapse;
-  margin: 0 auto;
-  display: inline-block;
-  vertical-align: middle;
-}
-table.case-img td {
-  width: 12px !important;
-  height: 12px !important;
-  border: 1px solid rgb(192, 192, 192);
-}
-table.case-img tr:nth-child(2) td {
-  height: 2px !important;
-}
-table.case-img tr td:nth-child(2) {
-  width: 2px !important;
-}
-
-table.case-img tr:nth-child(1) td:nth-child(1).o {background:      rgb(64, 64, 64);}
-table.case-img tr:nth-child(1) td:nth-child(1).m {border-top:  4px rgb(64, 64, 64) solid;}
-table.case-img tr:nth-child(1) td:nth-child(1).p {border-left: 4px rgb(64, 64, 64) solid;}
-
-table.case-img tr:nth-child(1) td:nth-child(3).o {background:      rgb(64, 64, 64);}
-table.case-img tr:nth-child(1) td:nth-child(3).m {border-right:  4px rgb(64, 64, 64) solid;}
-table.case-img tr:nth-child(1) td:nth-child(3).p {border-top: 4px rgb(64, 64, 64) solid;}
-
-table.case-img tr:nth-child(3) td:nth-child(3).o {background:      rgb(64, 64, 64);}
-table.case-img tr:nth-child(3) td:nth-child(3).m {border-bottom:  4px rgb(64, 64, 64) solid;}
-table.case-img tr:nth-child(3) td:nth-child(3).p {border-right: 4px rgb(64, 64, 64) solid;}
-
-table.case-img tr:nth-child(3) td:nth-child(1).o {background:      rgb(64, 64, 64);}
-table.case-img tr:nth-child(3) td:nth-child(1).m {border-left:  4px rgb(64, 64, 64) solid;}
-table.case-img tr:nth-child(3) td:nth-child(1).p {border-bottom: 4px rgb(64, 64, 64) solid;}
-
-table.case-img tr td._ {background: rgb(192, 192, 192);}
-table.case-img tr td.x {background: rgb(192, 192, 192);}
-
-
-table.alg-table > tbody > tr > td:last-child span.case-name {
-  margin: 0 8px;
-}
-</style>
+  <script src="lib/csv.js"></script>
+  <script src="case-diagram.js"></script>
+  <script src="populate-algs.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      makeDiagrams();
+      populateAlgs(document.querySelector("script[type=csv]").innerHTML);
+    });
+  </script>
 </head>
 <body>
 
 <table class="alg-table">
-<tbody class="header"><tr>
-  <td class="title">CLS Algs<br>Lucas Garron<br>Nov 15, 2015</td>
-  <td>-&nbsp;&nbsp;<span class="case" data-case="x_x___x_m"></span></td>&nbsp;&nbsp;
-  <td>+&nbsp;&nbsp;<span class="case" data-case="x_x___x_p"></span></td>&nbsp;&nbsp;
-  <td>O&nbsp;&nbsp;<span class="case" data-case="x_x___x_o"></span></td>&nbsp;&nbsp;
-  <td class="C-I-Im-header">C (DFR solved)</td>
-</tr></tbody>
-<tbody class="algs">
-<tr><td><span class="case" data-case="o_o___o_x"></span></td><td data-case="m00"></td><td data-case="p00"></td><td data-case="o00"></td><td data-case="C0"><span class="case" data-case="o_o___o_o"></span></td></tr>
-<tr><td><span class="case" data-case="o_p___o_x"></span></td><td data-case="m01"></td><td data-case="p18"></td><td data-case="o01"></td><td data-case="C1"><span class="case" data-case="m_o___m_m"></span></td></tr>
-<tr><td><span class="case" data-case="o_m___o_x"></span></td><td data-case="m02"></td><td data-case="p09"></td><td data-case="o02"></td><td data-case="C2"><span class="case" data-case="p_o___p_p"></span></td></tr>
-<tr><td><span class="case" data-case="p_o___o_x"></span></td><td data-case="m03"></td><td data-case="p06"></td><td data-case="o03"></td><td data-case="C3"><span class="case" data-case="p_m___m_p"></span></td></tr>
-<tr><td><span class="case" data-case="p_p___o_x"></span></td><td data-case="m04"></td><td data-case="p24"></td><td data-case="o04"></td><td data-case="C4"><span class="case" data-case="m_o___o_p"></span></td></tr>
-<tr><td><span class="case" data-case="p_m___o_x"></span></td><td data-case="m05"></td><td data-case="p15"></td><td data-case="o05"></td><td data-case="C5"><span class="case" data-case="o_o___p_m"></span></td></tr>
-<tr><td><span class="case" data-case="m_o___o_x"></span></td><td data-case="m06"></td><td data-case="p03"></td><td data-case="o06"></td><td data-case="C6"><span class="case" data-case="o_o___m_p"></span></td></tr>
-<tr><td><span class="case" data-case="m_p___o_x"></span></td><td data-case="m07"></td><td data-case="p21"></td><td data-case="o07"></td><td data-case="C7"><span class="case" data-case="p_p___m_m"></span></td></tr>
-<tr><td><span class="case" data-case="m_m___o_x"></span></td><td data-case="m08"></td><td data-case="p12"></td><td data-case="o08"></td><td class="C-I-Im-header">I (DFR clockwise)</td></tr>
 
-<tr><td><span class="case" data-case="o_o___p_x"></span></td><td data-case="m09"></td><td data-case="p02"></td><td data-case="o09"></td><td data-case="I0"><span class="case" data-case="o_o___o_m"></span></td></tr>
-<tr><td><span class="case" data-case="o_p___p_x"></span></td><td data-case="m10"></td><td data-case="p20"></td><td data-case="o10"></td><td data-case="I1"><span class="case" data-case="p_o___p_o"></span></td></tr>
-<tr><td><span class="case" data-case="o_m___p_x"></span></td><td data-case="m11"></td><td data-case="p11"></td><td data-case="o11"></td><td data-case="I2"><span class="case" data-case="o_p___p_o"></span></td></tr>
-<tr><td><span class="case" data-case="p_o___p_x"></span></td><td data-case="m12"></td><td data-case="p08"></td><td data-case="o12"></td><td data-case="I3"><span class="case" data-case="m_o___p_m"></span></td></tr>
-<tr><td><span class="case" data-case="p_p___p_x"></span></td><td data-case="m13"></td><td data-case="p26"></td><td data-case="o13"></td><td data-case="I4"><span class="case" data-case="m_p___m_o"></span></td></tr>
-<tr><td><span class="case" data-case="p_m___p_x"></span></td><td data-case="m14"></td><td data-case="p17"></td><td data-case="o14"></td><td data-case="I5"><span class="case" data-case="m_m___p_o"></span></td></tr>
-<tr><td><span class="case" data-case="m_o___p_x"></span></td><td data-case="m15"></td><td data-case="p05"></td><td data-case="o15"></td><td data-case="I6"><span class="case" data-case="p_p___p_m"></span></td></tr>
-<tr><td><span class="case" data-case="m_p___p_x"></span></td><td data-case="m16"></td><td data-case="p23"></td><td data-case="o16"></td><td data-case="I7"><span class="case" data-case="m_m___m_m"></span></td></tr>
-<tr><td><span class="case" data-case="m_m___p_x"></span></td><td data-case="m17"></td><td data-case="p14"></td><td data-case="o17"></td><td class="C-I-Im-header">I (DFR counter-clockwise)</td></tr>
+  <tbody class="header"><tr>
+    <td class="title">CLS Algs<br>Lucas Garron<br>Nov 15, 2015</td>
+    <td>-&nbsp;&nbsp;<span class="case" data-case="x_x___x_m"></span></td>&nbsp;&nbsp;
+    <td>+&nbsp;&nbsp;<span class="case" data-case="x_x___x_p"></span></td>&nbsp;&nbsp;
+    <td>O&nbsp;&nbsp;<span class="case" data-case="x_x___x_o"></span></td>&nbsp;&nbsp;
+    <td class="C-I-Im-header">C (DFR solved)</td>
+  </tr></tbody>
 
-<tr><td><span class="case" data-case="o_o___m_x"></span></td><td data-case="m18"></td><td data-case="p01"></td><td data-case="o18"></td><td data-case="Im0"><span class="case" data-case="o_o___o_p"></span></td></tr>
-<tr><td><span class="case" data-case="o_p___m_x"></span></td><td data-case="m19"></td><td data-case="p19"></td><td data-case="o19"></td><td data-case="Im1"><span class="case" data-case="m_m___o_o"></span></td></tr>
-<tr><td><span class="case" data-case="o_m___m_x"></span></td><td data-case="m20"></td><td data-case="p10"></td><td data-case="o20"></td><td data-case="Im2"><span class="case" data-case="o_m___m_o"></span></td></tr>
-<tr><td><span class="case" data-case="p_o___m_x"></span></td><td data-case="m21"></td><td data-case="p07"></td><td data-case="o21"></td><td data-case="Im3"><span class="case" data-case="p_m___o_p"></span></td></tr>
-<tr><td><span class="case" data-case="p_p___m_x"></span></td><td data-case="m22"></td><td data-case="p25"></td><td data-case="o22"></td><td data-case="Im4"><span class="case" data-case="p_p___m_o"></span></td></tr>
-<tr><td><span class="case" data-case="p_m___m_x"></span></td><td data-case="m23"></td><td data-case="p16"></td><td data-case="o23"></td><td data-case="Im5"><span class="case" data-case="p_m___p_o"></span></td></tr>
-<tr><td><span class="case" data-case="m_o___m_x"></span></td><td data-case="m24"></td><td data-case="p04"></td><td data-case="o24"></td><td data-case="Im6"><span class="case" data-case="m_m___m_p"></span></td></tr>
-<tr><td><span class="case" data-case="m_p___m_x"></span></td><td data-case="m25"></td><td data-case="p22"></td><td data-case="o25"></td><td data-case="Im7"><span class="case" data-case="p_p___p_p"></span></td></tr>
-<tr><td><span class="case" data-case="m_m___m_x"></span></td><td data-case="m26"></td><td data-case="p13"></td><td data-case="o26"></td><td></td></tr>
+  <tbody class="algs">
+    <tr><td><span class="case" data-case="o_o___o_x"></span></td><td data-case="m00"></td><td data-case="p00"></td><td data-case="o00"></td><td data-case="C0"><span class="case" data-case="o_o___o_o"></span></td></tr>
+    <tr><td><span class="case" data-case="o_p___o_x"></span></td><td data-case="m01"></td><td data-case="p18"></td><td data-case="o01"></td><td data-case="C1"><span class="case" data-case="m_o___m_m"></span></td></tr>
+    <tr><td><span class="case" data-case="o_m___o_x"></span></td><td data-case="m02"></td><td data-case="p09"></td><td data-case="o02"></td><td data-case="C2"><span class="case" data-case="p_o___p_p"></span></td></tr>
+    <tr><td><span class="case" data-case="p_o___o_x"></span></td><td data-case="m03"></td><td data-case="p06"></td><td data-case="o03"></td><td data-case="C3"><span class="case" data-case="p_m___m_p"></span></td></tr>
+    <tr><td><span class="case" data-case="p_p___o_x"></span></td><td data-case="m04"></td><td data-case="p24"></td><td data-case="o04"></td><td data-case="C4"><span class="case" data-case="m_o___o_p"></span></td></tr>
+    <tr><td><span class="case" data-case="p_m___o_x"></span></td><td data-case="m05"></td><td data-case="p15"></td><td data-case="o05"></td><td data-case="C5"><span class="case" data-case="o_o___p_m"></span></td></tr>
+    <tr><td><span class="case" data-case="m_o___o_x"></span></td><td data-case="m06"></td><td data-case="p03"></td><td data-case="o06"></td><td data-case="C6"><span class="case" data-case="o_o___m_p"></span></td></tr>
+    <tr><td><span class="case" data-case="m_p___o_x"></span></td><td data-case="m07"></td><td data-case="p21"></td><td data-case="o07"></td><td data-case="C7"><span class="case" data-case="p_p___m_m"></span></td></tr>
+    <tr><td><span class="case" data-case="m_m___o_x"></span></td><td data-case="m08"></td><td data-case="p12"></td><td data-case="o08"></td><td class="C-I-Im-header">I (DFR clockwise)</td></tr>
 
-</tbody>
+    <tr><td><span class="case" data-case="o_o___p_x"></span></td><td data-case="m09"></td><td data-case="p02"></td><td data-case="o09"></td><td data-case="I0"><span class="case" data-case="o_o___o_m"></span></td></tr>
+    <tr><td><span class="case" data-case="o_p___p_x"></span></td><td data-case="m10"></td><td data-case="p20"></td><td data-case="o10"></td><td data-case="I1"><span class="case" data-case="p_o___p_o"></span></td></tr>
+    <tr><td><span class="case" data-case="o_m___p_x"></span></td><td data-case="m11"></td><td data-case="p11"></td><td data-case="o11"></td><td data-case="I2"><span class="case" data-case="o_p___p_o"></span></td></tr>
+    <tr><td><span class="case" data-case="p_o___p_x"></span></td><td data-case="m12"></td><td data-case="p08"></td><td data-case="o12"></td><td data-case="I3"><span class="case" data-case="m_o___p_m"></span></td></tr>
+    <tr><td><span class="case" data-case="p_p___p_x"></span></td><td data-case="m13"></td><td data-case="p26"></td><td data-case="o13"></td><td data-case="I4"><span class="case" data-case="m_p___m_o"></span></td></tr>
+    <tr><td><span class="case" data-case="p_m___p_x"></span></td><td data-case="m14"></td><td data-case="p17"></td><td data-case="o14"></td><td data-case="I5"><span class="case" data-case="m_m___p_o"></span></td></tr>
+    <tr><td><span class="case" data-case="m_o___p_x"></span></td><td data-case="m15"></td><td data-case="p05"></td><td data-case="o15"></td><td data-case="I6"><span class="case" data-case="p_p___p_m"></span></td></tr>
+    <tr><td><span class="case" data-case="m_p___p_x"></span></td><td data-case="m16"></td><td data-case="p23"></td><td data-case="o16"></td><td data-case="I7"><span class="case" data-case="m_m___m_m"></span></td></tr>
+    <tr><td><span class="case" data-case="m_m___p_x"></span></td><td data-case="m17"></td><td data-case="p14"></td><td data-case="o17"></td><td class="C-I-Im-header">I (DFR counter-clockwise)</td></tr>
 
-<tbody>
-<tr><td colspan=5 style="text-align: center">
-[A: B] = A B A'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[A, B] = A B A' B'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-H = (L' U' L)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-H = (L' U' L)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-I = (L U L')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-J = (R' U' R)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-K = (R U R')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-h = (l' U' l)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-i = (l U l')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-j = (r' U' r)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-k = (r U r')</td></tr>
-</tbody>
+    <tr><td><span class="case" data-case="o_o___m_x"></span></td><td data-case="m18"></td><td data-case="p01"></td><td data-case="o18"></td><td data-case="Im0"><span class="case" data-case="o_o___o_p"></span></td></tr>
+    <tr><td><span class="case" data-case="o_p___m_x"></span></td><td data-case="m19"></td><td data-case="p19"></td><td data-case="o19"></td><td data-case="Im1"><span class="case" data-case="m_m___o_o"></span></td></tr>
+    <tr><td><span class="case" data-case="o_m___m_x"></span></td><td data-case="m20"></td><td data-case="p10"></td><td data-case="o20"></td><td data-case="Im2"><span class="case" data-case="o_m___m_o"></span></td></tr>
+    <tr><td><span class="case" data-case="p_o___m_x"></span></td><td data-case="m21"></td><td data-case="p07"></td><td data-case="o21"></td><td data-case="Im3"><span class="case" data-case="p_m___o_p"></span></td></tr>
+    <tr><td><span class="case" data-case="p_p___m_x"></span></td><td data-case="m22"></td><td data-case="p25"></td><td data-case="o22"></td><td data-case="Im4"><span class="case" data-case="p_p___m_o"></span></td></tr>
+    <tr><td><span class="case" data-case="p_m___m_x"></span></td><td data-case="m23"></td><td data-case="p16"></td><td data-case="o23"></td><td data-case="Im5"><span class="case" data-case="p_m___p_o"></span></td></tr>
+    <tr><td><span class="case" data-case="m_o___m_x"></span></td><td data-case="m24"></td><td data-case="p04"></td><td data-case="o24"></td><td data-case="Im6"><span class="case" data-case="m_m___m_p"></span></td></tr>
+    <tr><td><span class="case" data-case="m_p___m_x"></span></td><td data-case="m25"></td><td data-case="p22"></td><td data-case="o25"></td><td data-case="Im7"><span class="case" data-case="p_p___p_p"></span></td></tr>
+    <tr><td><span class="case" data-case="m_m___m_x"></span></td><td data-case="m26"></td><td data-case="p13"></td><td data-case="o26"></td><td class="border-bottom-none border-right-none"></td></tr>
+  </tbody>
+
+  <tbody>
+    <tr class="bogus-row"><td></td><td></td><td></td><td></td><td class="border-top-none"></td></tr>
+    <tr><td colspan=5 style="text-align: center" class="triggers">
+      <span>[A: B] = A B A'</span>
+      <span>[A, B] = A B A' B'</span>
+      <span>H = (L' U' L)</span>
+      <span>H = (L' U' L)</span>
+      <span>I = (L U L')</span>
+      <span>J = (R' U' R)</span>
+      <span>K = (R U R')</span>
+      <span>h = (l' U' l)</span>
+      <span>i = (l U l')</span>
+      <span>j = (r' U' r)</span>
+      <span>k = (r U r')</span>
+    </td></tr>
+  </tbody>
 </table>
-
-<script>
-
-function caseToTable(s) {
-  var table = document.createElement("table");
-  table.classList.add("case-img");
-  for (var j = 0; j < 3; j++) {
-    var tr = document.createElement("tr");
-    table.appendChild(tr)
-    for (var k = 0; k < 3; k++) {
-      var td = document.createElement("td");
-      td.classList.add(s[j * 3 + k]);
-      tr.appendChild(td)
-    }
-  }
-  return table;
-}
-
-var cases = document.getElementsByClassName("case");
-for (var i = 0; i < cases.length; i++) {
-  var c = cases[i];
-  c.appendChild(caseToTable(c.getAttribute("data-case")));
-}
-</script>
-
-<script>
-/* Copyright 2012-2013 Daniel Tillin full license details at http://code.google.com/p/csv-to-array/#License */String.prototype.csvToArray=function(e){var t={fSep:",",rSep:"\r\n",quot:'"',head:false,trim:false};if(e){for(var n in t){if(!e[n])e[n]=t[n]}}else{e=t}var r=[[""]];for(var i=f=p=q=0;p<this.length;p++){switch(c=this.charAt(p)){case e.quot:if(q&&this.charAt(p+1)==e.quot){r[i][f]+=e.quot;++p}else{q^=1}break;case e.fSep:if(!q){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[i][++f]=""}else{r[i][f]+=c}break;case e.rSep.charAt(0):if(!q&&(!e.rSep.charAt(1)||e.rSep.charAt(1)&&e.rSep.charAt(1)==this.charAt(p+1))){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[++i]=[""];r[i][f=0]="";if(e.rSep.charAt(1)){++p}}else{r[i][f]+=c}break;default:r[i][f]+=c}}if(e.head){r.shift()}if(r[r.length-1].length<r[0].length){r.pop()}return r}
-</script>
-
-<script>
-function populateAlgs(csvString) {
-  data = csvString.csvToArray({rSep: "\n"});
-
-  var done = {};
-
-  for (var i in data) {
-    var line = data[i];
-    if (line[0].match(/^([-\+OIC]|(Im))\d\d?/)) {
-      var select = line[0].replace("-", "m").replace("+", "p").replace("O", "o");
-        console.log(select);
-      if (!(select in done)) {
-        done[select] = line[2];
-
-        var cell = document.querySelector("td[data-case=" + select + "]")
-        var caseName = document.createElement("span");
-        caseName.classList.add("case-name");
-        caseName.textContent = line[0];
-        cell.appendChild(caseName);
-
-        if (line[7] && (line[7].match("learn") || line[7].match("LEARN"))){
-          caseName.classList.add("learn");
-        }
-
-        var alg = document.createElement("a");
-        alg.textContent += line[2];
-        alg.href = "https://alg.cubing.net?stage=CLS&type=alg&alg=" + line[3];
-        cell.appendChild(alg);
-      }
-    }
-  }
-}
-</script>
-
 
 <script type="csv">
 Case,,Alg,Expanded,OBTM,,Rating,Notes
@@ -494,10 +306,6 @@ OLL 54,,r U J' U' J' U2' r',r U R' U R U' R' U R U2' r',11,view,⭐⭐⭐,
 OLL 55,,,,,-,,
 OLL 56,,[k: (U K')2],[r U r': (U R U' R')2],14,view,⭐⭐⭐⭐,
 OLL 57,,K U' M' U R U' r',R U R' U' M' U R U' r',10,view,⭐⭐⭐,
-</script>
-
-<script>
-populateAlgs(document.querySelector("script[type=csv]").innerHTML);
 </script>
 
 </body>

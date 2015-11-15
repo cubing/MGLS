@@ -1,0 +1,41 @@
+/* Case Diagrams */
+
+.case::shadow table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.case::shadow table td {
+  width: 9px !important;
+  height: 9px !important;
+  border: 1px solid rgb(192, 192, 192);
+}
+
+.case::shadow table tr:nth-child(2) td {
+  height: 2px !important;
+}
+
+.case::shadow table tr td:nth-child(2) {
+  width: 2px !important;
+}
+
+.case::shadow tr:nth-child(1) td:nth-child(1).o {background:        rgb(64, 64, 64);}
+.case::shadow tr:nth-child(1) td:nth-child(1).m {border-top:    4px rgb(64, 64, 64) solid;}
+.case::shadow tr:nth-child(1) td:nth-child(1).p {border-left:   4px rgb(64, 64, 64) solid;}
+
+.case::shadow tr:nth-child(1) td:nth-child(3).o {background:        rgb(64, 64, 64);}
+.case::shadow tr:nth-child(1) td:nth-child(3).m {border-right:  4px rgb(64, 64, 64) solid;}
+.case::shadow tr:nth-child(1) td:nth-child(3).p {border-top:    4px rgb(64, 64, 64) solid;}
+
+.case::shadow tr:nth-child(3) td:nth-child(3).o {background:        rgb(64, 64, 64);}
+.case::shadow tr:nth-child(3) td:nth-child(3).m {border-bottom: 4px rgb(64, 64, 64) solid;}
+.case::shadow tr:nth-child(3) td:nth-child(3).p {border-right:  4px rgb(64, 64, 64) solid;}
+
+.case::shadow tr:nth-child(3) td:nth-child(1).o {background:        rgb(64, 64, 64);}
+.case::shadow tr:nth-child(3) td:nth-child(1).m {border-left:   4px rgb(64, 64, 64) solid;}
+.case::shadow tr:nth-child(3) td:nth-child(1).p {border-bottom: 4px rgb(64, 64, 64) solid;}
+
+.case::shadow tr td._ {background: rgb(192, 192, 192);}
+.case::shadow tr td.x {background: rgb(192, 192, 192);}

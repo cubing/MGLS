@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+body {
+  font-size: 75%;
+}
+
+table.alg-table {
+  border-collapse: collapse;
+  width: 900px;
+  height: 1100px;
+  margin: 0 auto;
+}
+
+@media screen {
+  table.alg-table {
+    margin: 2em auto;
+  }
+}
+
+
+tbody.header tr td:not(:first-child):not(:last-child) {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+.title {
+  font-size: 8px;
+  line-height: 1.25em;
+}
+
+td {
+  height: 38px;
+  text-align: center;
+}
+
+tbody.algs td {
+  border: 1px solid rgb(192, 192, 192);
+}
+
+tbody tr td:first-child {
+  width: 60px;
+  padding: 0px 0px;
+  box-sizing: border-box;
+  text-align: center;
+}
+tbody.algs tr td:not(:first-child) {
+  padding-left: 2px;
+  text-align: left;
+}
+
+tbody.header tr td:last-child,
+tbody.algs tr td:last-child {
+  border-left: 2px solid rgb(64, 64, 64);
+  padding-left: 12px;
+}
+
+.bogus-row {height: 0 !important;}
+.bogus-row td {height: 0 !important;}
+
+.border-left-none { border-bottom: none !important; }
+.border-bottom-none { border-bottom: none !important; }
+.border-right-none { border-right: none !important; }
+.border-top-none { border-top: none !important; }
+
+
+/* Case Name */
+
+span.case-name {
+  margin-right: 4px;
+  color: rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 4px;
+}
+
+span.case-name.learn {
+  text-decoration: underline;
+}
+
+
+/* C / I / Im column adjustments */
+
+tbody tr td.C-I-Im-header {
+  font-weight: bold;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  border-right: none;
+  text-align: left;
+}
+
+tbody tr td:last-child span.case-name {
+  margin: 0 8px;
+}
+
+
+/* Links */
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.triggers span {
+  display: inline-block;
+  margin: 0 8px;
+}
