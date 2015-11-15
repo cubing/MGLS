@@ -226,6 +226,45 @@ for (var i = 0; i < cases.length; i++) {
 }
 </script>
 
+<script>
+/* Copyright 2012-2013 Daniel Tillin full license details at http://code.google.com/p/csv-to-array/#License */String.prototype.csvToArray=function(e){var t={fSep:",",rSep:"\r\n",quot:'"',head:false,trim:false};if(e){for(var n in t){if(!e[n])e[n]=t[n]}}else{e=t}var r=[[""]];for(var i=f=p=q=0;p<this.length;p++){switch(c=this.charAt(p)){case e.quot:if(q&&this.charAt(p+1)==e.quot){r[i][f]+=e.quot;++p}else{q^=1}break;case e.fSep:if(!q){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[i][++f]=""}else{r[i][f]+=c}break;case e.rSep.charAt(0):if(!q&&(!e.rSep.charAt(1)||e.rSep.charAt(1)&&e.rSep.charAt(1)==this.charAt(p+1))){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[++i]=[""];r[i][f=0]="";if(e.rSep.charAt(1)){++p}}else{r[i][f]+=c}break;default:r[i][f]+=c}}if(e.head){r.shift()}if(r[r.length-1].length<r[0].length){r.pop()}return r}
+</script>
+
+<script>
+function populateAlgs(csvString) {
+  data = csvString.csvToArray({rSep: "\n"});
+
+  var done = {};
+
+  for (var i in data) {
+    var line = data[i];
+    if (line[0].match(/^([-\+OIC]|(Im))\d\d?/)) {
+      var select = line[0].replace("-", "m").replace("+", "p").replace("O", "o");
+        console.log(select);
+      if (!(select in done)) {
+        done[select] = line[2];
+
+        var cell = document.querySelector("td[data-case=" + select + "]")
+        var caseName = document.createElement("span");
+        caseName.classList.add("case-name");
+        caseName.textContent = line[0];
+        cell.appendChild(caseName);
+
+        if (line[7] && (line[7].match("learn") || line[7].match("LEARN"))){
+          caseName.classList.add("learn");
+        }
+
+        var alg = document.createElement("a");
+        alg.textContent += line[2];
+        alg.href = "https://alg.cubing.net?stage=CLS&type=alg&alg=" + line[3];
+        cell.appendChild(alg);
+      }
+    }
+  }
+}
+</script>
+
+
 <script type="csv">
 Case,,Alg,Expanded,OBTM,,Rating,Notes
 -00,,(y) [R' D R: U'],(y) [R' D R: U'],Loading...,view,⭐⭐⭐⭐,Allows CP control.
@@ -458,41 +497,7 @@ OLL 57,,K U' M' U R U' r',R U R' U' M' U R U' r',10,view,⭐⭐⭐,
 </script>
 
 <script>
-/* Copyright 2012-2013 Daniel Tillin full license details at http://code.google.com/p/csv-to-array/#License */String.prototype.csvToArray=function(e){var t={fSep:",",rSep:"\r\n",quot:'"',head:false,trim:false};if(e){for(var n in t){if(!e[n])e[n]=t[n]}}else{e=t}var r=[[""]];for(var i=f=p=q=0;p<this.length;p++){switch(c=this.charAt(p)){case e.quot:if(q&&this.charAt(p+1)==e.quot){r[i][f]+=e.quot;++p}else{q^=1}break;case e.fSep:if(!q){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[i][++f]=""}else{r[i][f]+=c}break;case e.rSep.charAt(0):if(!q&&(!e.rSep.charAt(1)||e.rSep.charAt(1)&&e.rSep.charAt(1)==this.charAt(p+1))){if(e.trim){r[i][f]=r[i][f].replace(/^\s\s*/,"").replace(/\s\s*$/,"")}r[++i]=[""];r[i][f=0]="";if(e.rSep.charAt(1)){++p}}else{r[i][f]+=c}break;default:r[i][f]+=c}}if(e.head){r.shift()}if(r[r.length-1].length<r[0].length){r.pop()}return r}
-</script>
-
-<script>
-var csvString = document.querySelector("script[type=csv]").innerHTML;
-data = csvString.csvToArray({rSep: "\n"});
-
-var done = {};
-
-for (var i in data) {
-  var line = data[i];
-  if (line[0].match(/^([-\+OIC]|(Im))\d\d?/)) {
-    var select = line[0].replace("-", "m").replace("+", "p").replace("O", "o");
-      console.log(select);
-    if (!(select in done)) {
-      done[select] = line[2];
-
-      var cell = document.querySelector("td[data-case=" + select + "]")
-      var caseName = document.createElement("span");
-      caseName.classList.add("case-name");
-      caseName.textContent = line[0];
-      cell.appendChild(caseName);
-
-      if (line[7] && (line[7].match("learn") || line[7].match("LEARN"))){
-        caseName.classList.add("learn");
-      }
-
-      var alg = document.createElement("a");
-      alg.textContent += line[2];
-      alg.href = "https://alg.cubing.net?stage=CLS&type=alg&alg=" + line[3];
-      cell.appendChild(alg);
-    }
-  }
-}
-
+populateAlgs(document.querySelector("script[type=csv]").innerHTML);
 </script>
 
 </body>
