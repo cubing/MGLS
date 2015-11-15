@@ -1,5 +1,11 @@
 /* Case Diagrams */
 
+.case {
+  width: 31px;
+  display: inline-block;
+  text-align: center
+}
+
 .case::shadow table {
   border-collapse: collapse;
   margin: 0 auto;
