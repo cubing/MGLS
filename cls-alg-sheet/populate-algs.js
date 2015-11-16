@@ -17,7 +17,7 @@ function populateAlgs(csvString) {
         caseName.textContent = line[0];
         cell.appendChild(caseName);
 
-        if (line[7] && (line[7].match("learn") || line[7].match("LEARN"))){
+        if (line[8] && (line[8].match("learn") || line[8].match("LEARN") || line[8].match("switch"))){
           caseName.classList.add("learn");
         }
 

@@ -17,7 +17,10 @@ table.alg-table {
 
 @media screen {
   table.alg-table {
-    margin: 2em auto;
+    margin: auto;
+  }
+  body.alg-table {
+    padding: 2em auto;
   }
 }
 
