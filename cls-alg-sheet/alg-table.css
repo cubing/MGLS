@@ -80,7 +80,7 @@ span.case-name {
   padding: 4px;
 }
 
-span.case-name.learn {
+.lgarron-learn span.case-name.learn {
   text-decoration: underline;
 }
 

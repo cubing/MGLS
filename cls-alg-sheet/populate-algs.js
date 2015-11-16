@@ -29,3 +29,7 @@ function populateAlgs(csvString) {
     }
   }
 }
+
+function lgarronLearn() {
+  document.body.classList.add("lgarron-learn");
+}
